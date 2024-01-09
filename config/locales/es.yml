@@ -1,3 +1,10 @@
 es:
+  users:
+    sign_up: 'Registracion exitosa'
+    login: 'Session iniciada correctamente'
+    logout: 'Session terminada correctamente'
   errors:
     not_fount: '%{model} no encontrado'
+    users:
+      sign_up: 'Registracion fallida'
+      login: 'Email o contraseña invalido.'

@@ -10,15 +10,15 @@ module Api
         def create
           if @user_resource&.valid_password?(params.dig(:user, :password))
             sign_in(resource_name, @user_resource)
-            render json: { message: 'Logged in successfully.' }, status: :ok
+            render json: { message: I18n.t('users.login') }, status: :ok
           else
-            render json: { message: 'Invalid email or password.' }, status: :unauthorized
+            render json: { message: I18n.t('errors.users.login') }, status: :unauthorized
           end
         end
 
         def destroy
           sign_out(current_user)
-          render json: { message: 'logged out successfully' }, status: :ok
+          render json: { message: I18n.t('users.logout') }, status: :ok
         end
 
         private

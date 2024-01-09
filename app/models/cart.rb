@@ -20,5 +20,5 @@ class Cart < ApplicationRecord
   belongs_to :created_by, class_name: 'User', inverse_of: :carts
   has_many :cart_items, dependent: :destroy
 
-  enum status: { pending: 0, processing: 1, completed: 2, canceled: 3 }
+  enum status: { received: 0, pending: 1, processing: 2, completed: 3, canceled: 4 }
 end

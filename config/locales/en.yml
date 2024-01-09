@@ -1,3 +1,10 @@
 en:
+  users:
+    sign_up: 'sign up success.'
+    login: 'Logged in successfully.'
+    logout: 'logged out successfully.'
   errors:
     not_fount: '%{model} not found'
+    users:
+      sign_up: 'Sign up failed'
+      login: 'Logged in successfully.'
