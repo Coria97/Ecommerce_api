@@ -109,3 +109,6 @@ yarn-debug.log*
 
 # Ignore vscode settings
 settings.json
+
+# Ignore local data
+/local_data/
