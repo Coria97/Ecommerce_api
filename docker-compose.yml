@@ -1,0 +1,20 @@
+version: '2.2'
+services:
+  ruby_container:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/home/app
+    ports:
+    - "3000:3000"
+    links:
+      - postgres_container
+  postgres_container:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - ./local_data:/var/lib/postgresql/data
+
+volumes:
+  ecommerce_db:
