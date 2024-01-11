@@ -25,6 +25,7 @@ end
 
 # rubocop:disable Layout/LineLength
 
+
 # == Route Map
 #
 #                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
@@ -33,6 +34,7 @@ end
 #                        user_registration POST   /api/v1/signup(.:format)                                                                          api/v1/users/registrations#create
 #                          api_v1_products GET    /api/v1/products(.:format)                                                                        api/v1/products#index
 #                           api_v1_product GET    /api/v1/products/:id(.:format)                                                                    api/v1/products#show
+#                             api_v1_carts POST   /api/v1/carts(.:format)                                                                           api/v1/carts#create
 #                       rails_health_check GET    /up(.:format)                                                                                     rails/health#show
 #         turbo_recede_historical_location GET    /recede_historical_location(.:format)                                                             turbo/native/navigation#recede
 #         turbo_resume_historical_location GET    /resume_historical_location(.:format)                                                             turbo/native/navigation#resume

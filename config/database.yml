@@ -4,14 +4,14 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   password: admin
-  host: postgres_container
+  host: db
 
 development:
   <<: *default
   database: ecommerce_db_development
   username: postgres
   password: admin
-  host: postgres_container
+  host: db
   port: 5432
 
 test:
@@ -19,7 +19,7 @@ test:
   database: ecommerce_db_test
   username: postgres
   password: admin
-  host: postgres_container
+  host: db
   port: 5432
 
 production:
