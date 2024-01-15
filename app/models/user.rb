@@ -29,4 +29,8 @@ class User < ApplicationRecord
   validates :email, :encrypted_password, :first_name, :last_name, presence: true
 
   has_many :carts, foreign_key: 'created_by_id', dependent: :nullify, inverse_of: :created_by
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

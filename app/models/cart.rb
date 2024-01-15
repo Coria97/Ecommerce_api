@@ -21,4 +21,8 @@ class Cart < ApplicationRecord
   has_many :cart_items, dependent: :destroy
 
   enum status: { received: 0, pending: 1, processing: 2, completed: 3, canceled: 4 }
+
+  def total_amounth
+    cart_items.inject(0) { |sum, item| sum + item.price * item.quantity }.to_f
+  end
 end

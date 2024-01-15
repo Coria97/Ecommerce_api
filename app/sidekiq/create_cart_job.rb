@@ -5,7 +5,7 @@ class CreateCartJob
     initialize_variables(client_id, order)
     create_cart
     process_products
-    # Enviar email
+    CartMailer.cart_created(@cart).deliver
   end
 
   private
