@@ -4,7 +4,7 @@ en:
     login: 'Logged in successfully.'
     logout: 'logged out successfully.'
   errors:
-    not_fount: '%{model} not found'
+    not_fount: '%{model} not found.'
     users:
-      sign_up: 'Sign up failed'
-      login: 'Logged in successfully.'
+      sign_up: 'Sign up failed.'
+      login: 'Invalid email or password.'

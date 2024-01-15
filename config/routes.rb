@@ -1,8 +1,10 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users, path: 'api/v1', path_names:
   {
-    sign_in: 'login',
-    sign_out: 'logout',
+    sign_in:      'login',
+    sign_out:     'logout',
     registration: 'signup'
   },
   skip: :all
@@ -20,12 +22,12 @@ Rails.application.routes.draw do
     end
   end
 
-  get "up" => "rails/health#show", as: :rails_health_check
+  mount Sidekiq::Web => '/sidekiq'
+
+  get 'up' => 'rails/health#show', as: :rails_health_check
 end
 
 # rubocop:disable Layout/LineLength
-
-
 # == Route Map
 #
 #                                   Prefix Verb   URI Pattern                                                                                       Controller#Action

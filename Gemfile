@@ -61,17 +61,19 @@ gem 'devise-jwt'
 # Rack-Cors
 gem 'rack-cors'
 
+# redis
 gem 'redis', '>= 4.0.1'
+
+# sidekiq
 gem 'sidekiq', '>= 7.2.0'
+
+# dotenv
+gem 'dotenv-rails', groups: %i[development test]
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'byebug'
-  gem 'debug', platforms: %i[ mri windows ]
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'byebug'
-  gem 'debug', platforms: %i[ mri windows ]
+  gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
   gem 'faker'
 end
