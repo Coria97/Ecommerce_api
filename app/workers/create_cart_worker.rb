@@ -1,5 +1,5 @@
-class CreateCartJob
-  include Sidekiq::Job
+class CreateCartWorker
+  include Sidekiq::Worker
 
   def perform(client_id, order)
     initialize_variables(client_id, order)
@@ -20,7 +20,7 @@ class CreateCartJob
   end
 
   def process_products
-    @order.each do |product|
+    @order['products'].each do |product|
       create_cart_item(Product.find(product['product_id']), product['quantity'])
     end
   end

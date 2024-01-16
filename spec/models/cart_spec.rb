@@ -8,7 +8,7 @@ RSpec.describe Cart, type: :model do
 
   describe 'enums' do
     it 'defines the correct enum values' do
-      expect(Cart.statuses).to eq('pending' => 0, 'processing' => 1, 'completed' => 2, 'canceled' => 3)
+      expect(Cart.statuses).to eq('received' => 0, 'pending' => 1, 'processing' => 2, 'completed' => 3, 'canceled' => 4)
     end
   end
 end

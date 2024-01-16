@@ -92,7 +92,7 @@ GEM
     benchmark (0.3.0)
     bigdecimal (3.1.5)
     bindex (0.8.1)
-    bootsnap (1.17.0)
+    bootsnap (1.17.1)
       msgpack (~> 1.2)
     builder (3.2.4)
     byebug (11.1.3)
@@ -107,7 +107,7 @@ GEM
       xpath (~> 3.2)
     case_transform (0.2)
       activesupport
-    concurrent-ruby (1.2.2)
+    concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
@@ -146,7 +146,7 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    faker (3.2.2)
+    faker (3.2.3)
       i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -195,7 +195,7 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     mini_mime (1.1.5)
-    minitest (5.20.0)
+    minitest (5.21.1)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.9.1)
@@ -214,7 +214,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.24.0)
-    parser (3.3.0.2)
+    parser (3.3.0.4)
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
@@ -298,12 +298,17 @@ GEM
       rspec-expectations (~> 3.12)
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
+    rspec-sidekiq (4.1.0)
+      rspec-core (~> 3.0)
+      rspec-expectations (~> 3.0)
+      rspec-mocks (~> 3.0)
+      sidekiq (>= 5, < 8)
     rspec-support (3.12.1)
-    rubocop (1.59.0)
+    rubocop (1.60.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
-      parser (>= 3.2.2.4)
+      parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml (>= 3.2.5, < 4.0)
@@ -416,6 +421,7 @@ DEPENDENCIES
   rails (~> 7.1.1)
   redis (>= 4.0.1)
   rspec-rails
+  rspec-sidekiq
   rubocop
   rubocop-rails
   selenium-webdriver

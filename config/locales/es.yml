@@ -5,6 +5,7 @@ es:
     logout: 'Session terminada correctamente.'
   errors:
     not_fount: '%{model} no encontrado.'
+    bad_request: 'Los parámetros no pueden estar vacíos.'
     users:
       sign_up: 'Registracion fallida.'
       login: 'Email o contraseña invalido.'

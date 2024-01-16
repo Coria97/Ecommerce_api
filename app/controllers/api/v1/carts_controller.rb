@@ -4,7 +4,7 @@ module Api
       before_action :authenticate_user!
 
       def create
-        CreateCartJob.perform_async(current_user.id, create_params.to_json)
+        CreateCartWorker.perform_async(current_user.id, create_params.to_json)
         render json: { message: 'Succesfully cart creation' }, status: :created
       end
 

@@ -10,11 +10,7 @@ RSpec.describe Api::V1::Users::SessionsController, type: :controller do
         post :create, params: { user: { email: user.email, password: user.password } }
       end
 
-      it_behaves_like 'successful response' do
-        let(:expected_keys) do
-          %i[message]
-        end
-      end
+      it_behaves_like 'successful response'
 
       it 'signs in the user' do
         expect(subject.current_user).to eq(user)
@@ -46,11 +42,7 @@ RSpec.describe Api::V1::Users::SessionsController, type: :controller do
         delete :destroy
       end
 
-      it_behaves_like 'successful response' do
-        let(:expected_keys) do
-          %i[message]
-        end
-      end
+      it_behaves_like 'successful response'
 
       it 'signs out the user' do
         expect(subject.current_user).to be_nil
