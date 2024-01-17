@@ -1,8 +1,9 @@
 RSpec.shared_examples 'successful response' do
-  let(:expected_keys) { :message }
+  let(:expected_keys) { %i[message] }
+  let(:status_code) { 200 }
 
   it 'returns a 200 status code' do
-    expect(response).to have_http_status(200)
+    expect(response).to have_http_status(status_code)
   end
 
   it 'returns a json response' do

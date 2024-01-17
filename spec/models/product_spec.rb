@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+  describe 'associations' do
+    it { should have_many(:cart_items).dependent(:restrict_with_exception) }
+  end
+
   describe 'validations' do
     %i[name price stock_quantity sku].each do |field|
       it { is_expected.to validate_presence_of(field) }

@@ -1,3 +1,11 @@
 en:
+  users:
+    sign_up: 'sign up success.'
+    login: 'Logged in successfully.'
+    logout: 'logged out successfully.'
   errors:
-    not_fount: '%{model} not found'
+    not_fount: '%{model} not found.'
+    bad_request: 'Parameters cannot be empty.'
+    users:
+      sign_up: 'Sign up failed.'
+      login: 'Invalid email or password.'

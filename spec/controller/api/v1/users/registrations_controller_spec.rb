@@ -6,11 +6,11 @@ RSpec.describe Api::V1::Users::RegistrationsController, type: :controller do
       let(:valid_params) do
         {
           user: {
-            first_name: 'Leo',
-            last_name: 'Messi',
-            email: 'Leo.Messi@example.com',
-            password: '18122022',
-            password_confirmation: '18122022'
+            first_name:             'Leo',
+            last_name:              'Messi',
+            email:                  'Leo.Messi@example.com',
+            password:               '18122022',
+            password_confirmation:  '18122022'
           }
         }
       end
@@ -31,11 +31,11 @@ RSpec.describe Api::V1::Users::RegistrationsController, type: :controller do
       let(:invalid_params) do
         {
           user: {
-            first_name: 'Leo',
-            last_name: 'Messi',
-            email: 'Leo.Messi@example.com',
-            password: '18122022',
-            password_confirmation: 'wrong_password'
+            first_name:             'Leo',
+            last_name:              'Messi',
+            email:                  'Leo.Messi@example.com',
+            password:               '18122022',
+            password_confirmation:  'wrong_password'
           }
         }
       end
@@ -47,7 +47,7 @@ RSpec.describe Api::V1::Users::RegistrationsController, type: :controller do
 
       it_behaves_like 'failed response' do
         let(:status_code) { :unprocessable_entity }
-        let(:error_message) { 'Sign up failed' }
+        let(:error_message) { 'Sign up failed.' }
       end
     end
   end

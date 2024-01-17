@@ -76,4 +76,14 @@ Rails.application.configure do
 
   # Default url to send emails
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:        ENV['MAILER_ADDRESS'],
+    port:           ENV['MAILER_PORT'],
+    domain:         ENV['MAILER_DOMAIN'],
+    user_name:      ENV['MAILER_USER_NAME'],
+    password:       ENV['MAILER_PASSWORD'],
+    authentication: ENV['MAILER_AUTHENTICATION']
+  }
 end

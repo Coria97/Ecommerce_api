@@ -64,15 +64,10 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include Devise::Test::ControllerHelpers, type: :controller
-end
 
-# Configure for shoulda
-require 'shoulda/matchers'
-
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
+  # Configure for sidekiq
+  config.before(:each, type: :controller) do
+    ActiveJob::Base.queue_adapter = :test
   end
 end
 

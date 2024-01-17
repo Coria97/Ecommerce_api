@@ -24,5 +24,7 @@ class Product < ApplicationRecord
   validates :stock_quantity, presence: true
   validates :sku, presence: true, uniqueness: true
 
+  has_many :cart_items, dependent: :restrict_with_exception
+
   scope :active, -> { where(active: true) }
 end

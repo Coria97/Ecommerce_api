@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   Exclude:
     - db/migrate/**/*
@@ -52,7 +50,6 @@ Style/WordArray:
 # nicer for consistency, and for adding interpolation later.
 Style/StringLiterals:
   EnforcedStyle: single_quotes
-  EnforcedStyle: single_quotes
 
 # Prettier hashes.
 Layout/HashAlignment:
@@ -74,3 +71,8 @@ Rails/HasAndBelongsToMany:
 
 Layout/EndOfLine:
   Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+  Exclude:
+    - 'spec/**/*'

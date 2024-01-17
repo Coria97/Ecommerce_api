@@ -24,5 +24,7 @@ module EcommerceApi
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.annotate_models = true
+    config.autoload_paths += Dir["#{config.root}/app/workers"]
+    config.active_job.queue_adapter = :sidekiq
   end
 end

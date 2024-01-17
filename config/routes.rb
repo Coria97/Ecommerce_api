@@ -1,8 +1,10 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users, path: 'api/v1', path_names:
   {
-    sign_in: 'login',
-    sign_out: 'logout',
+    sign_in:      'login',
+    sign_out:     'logout',
     registration: 'signup'
   },
   skip: :all
@@ -16,10 +18,13 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :products, only: %i[index show]
+      resources :carts, only: %i[create]
     end
   end
 
-  get "up" => "rails/health#show", as: :rails_health_check
+  mount Sidekiq::Web => '/sidekiq'
+
+  get 'up' => 'rails/health#show', as: :rails_health_check
 end
 
 # rubocop:disable Layout/LineLength
@@ -27,23 +32,13 @@ end
 # == Route Map
 #
 #                                   Prefix Verb   URI Pattern                                                                                       Controller#Action
-#                         new_user_session GET    /api/v1/login(.:format)                                                                           api/v1/users/sessions#new
 #                             user_session POST   /api/v1/login(.:format)                                                                           api/v1/users/sessions#create
 #                     destroy_user_session DELETE /api/v1/logout(.:format)                                                                          api/v1/users/sessions#destroy
-#                        new_user_password GET    /api/v1/password/new(.:format)                                                                    devise/passwords#new
-#                       edit_user_password GET    /api/v1/password/edit(.:format)                                                                   devise/passwords#edit
-#                            user_password PATCH  /api/v1/password(.:format)                                                                        devise/passwords#update
-#                                          PUT    /api/v1/password(.:format)                                                                        devise/passwords#update
-#                                          POST   /api/v1/password(.:format)                                                                        devise/passwords#create
-#                 cancel_user_registration GET    /api/v1/signup/cancel(.:format)                                                                   api/v1/users/registrations#cancel
-#                    new_user_registration GET    /api/v1/signup/sign_up(.:format)                                                                  api/v1/users/registrations#new
-#                   edit_user_registration GET    /api/v1/signup/edit(.:format)                                                                     api/v1/users/registrations#edit
-#                        user_registration PATCH  /api/v1/signup(.:format)                                                                          api/v1/users/registrations#update
-#                                          PUT    /api/v1/signup(.:format)                                                                          api/v1/users/registrations#update
-#                                          DELETE /api/v1/signup(.:format)                                                                          api/v1/users/registrations#destroy
-#                                          POST   /api/v1/signup(.:format)                                                                          api/v1/users/registrations#create
+#                        user_registration POST   /api/v1/signup(.:format)                                                                          api/v1/users/registrations#create
 #                          api_v1_products GET    /api/v1/products(.:format)                                                                        api/v1/products#index
 #                           api_v1_product GET    /api/v1/products/:id(.:format)                                                                    api/v1/products#show
+#                             api_v1_carts POST   /api/v1/carts(.:format)                                                                           api/v1/carts#create
+#                              sidekiq_web        /sidekiq                                                                                          Sidekiq::Web
 #                       rails_health_check GET    /up(.:format)                                                                                     rails/health#show
 #         turbo_recede_historical_location GET    /recede_historical_location(.:format)                                                             turbo/native/navigation#recede
 #         turbo_resume_historical_location GET    /resume_historical_location(.:format)                                                             turbo/native/navigation#resume
