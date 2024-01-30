@@ -25,6 +25,7 @@ class Product < ApplicationRecord
   validates :sku, presence: true, uniqueness: true
 
   has_many :cart_items, dependent: :restrict_with_exception
+  has_one_attached :image
 
   scope :active, -> { where(active: true) }
 end
