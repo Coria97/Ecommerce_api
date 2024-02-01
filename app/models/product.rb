@@ -28,4 +28,8 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   scope :active, -> { where(active: true) }
+
+  def destroy
+    update(active: false)
+  end
 end
