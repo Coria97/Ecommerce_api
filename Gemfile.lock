@@ -456,6 +456,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  activestorage
   annotate
   avo (>= 3.2)
   bootsnap
@@ -467,7 +468,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
-  image_processing (~> 1.2)
+  image_processing
   importmap-rails
   jbuilder
   kaminari
