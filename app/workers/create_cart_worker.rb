@@ -20,12 +20,13 @@ class CreateCartWorker
   end
 
   def process_products
-    @order['products'].each do |product|
+    @order.each do |product|
       create_cart_item(Product.find(product['product_id']), product['quantity'])
     end
   end
 
   def create_cart_item(product, quantity)
+    product.stock_quantity -= quantity
     CartItem.create!(cart: @cart, product: product, price: product.price, quantity: quantity)
   end
 end

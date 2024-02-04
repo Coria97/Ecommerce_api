@@ -11,6 +11,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  role                   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -29,6 +30,8 @@ class User < ApplicationRecord
   validates :email, :encrypted_password, :first_name, :last_name, presence: true
 
   has_many :carts, foreign_key: 'created_by_id', dependent: :nullify, inverse_of: :created_by
+
+  enum role: { admin: 'admin', client: 'client' }
 
   def full_name
     "#{first_name} #{last_name}"
