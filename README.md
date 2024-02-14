@@ -1,24 +1,18 @@
-# README
+## Requirements
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application use a docker then if you don't have a docker desktop installed, you need a install this. For install follow this link and download it: [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-Things you may want to cover:
+## Running local server
 
-* Ruby version
+Once you have docker installed you have to follow the next steps:
 
-* System dependencies
+1. Clone repository -> `git clone https://github.com/Coria97/Ecommerce_api.git`
+2. Into to repository -> `cd .\ecommerce_api\`
+3. Open docker desktop application
+4. Run this command to start local server -> `docker compose up -d --build`
+5. Install gems -> `docker compose run web bundle install`
+6. Create database and run migrations -> `docker compose run web bundle exec rails db:create db:migrate `
 
-* Configuration
+## Services/Endpoints
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+All of service are in this postman collection -> [link to collection](https://www.postman.com/planetary-shuttle-304837/workspace/e-commerce/collection/23307208-095e54ea-c24c-4fc4-8625-f096c2954e07?action=share&creator=23307208)
